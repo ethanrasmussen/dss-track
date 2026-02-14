@@ -10,3 +10,8 @@ _Note: Video quality downscaled due to Github limitations_
 1. Ensure Docker installed locally
 2. Run `./build.sh`
 3. Profit
+
+# Ports:
+ - 3100: Frontend/UI
+ - 8000: API/Backend
+ - 8000/docs: Swagger UI via Browser
