@@ -12,6 +12,8 @@ from pathlib import Path
 import io
 import time
 
+from common_utils import sanitize_pre_api_resp
+
 app = FastAPI(title="DSS-TRACK: Semantic Duplicate Detection API")
 
 # CORS middleware
@@ -123,13 +125,14 @@ async def upload_file(file: UploadFile = File(...)):
         session_id = str(uuid.uuid4())
         sessions[session_id] = SessionData(session_id, df, file.filename)
 
-        return {
+        content = {
             "session_id": session_id,
             "filename": file.filename,
             "rows": len(df),
             "columns": df.columns.tolist(),
             "preview": df.head(5).to_dict("records"),
         }
+        return sanitize_pre_api_resp(content)
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error processing file: {str(e)}")
@@ -205,13 +208,14 @@ async def analyze_duplicates(selection: ColumnSelection):
 
         session.duplicate_groups = duplicate_groups
 
-        return {
+        content = {
             "session_id": selection.session_id,
             "total_rows": len(df),
             "duplicate_groups": len(duplicate_groups),
             "total_potential_duplicates": sum(len(g["rows"]) for g in duplicate_groups),
             "groups": duplicate_groups,
         }
+        return sanitize_pre_api_resp(content)
 
     except Exception as e:
         raise HTTPException(
@@ -229,13 +233,14 @@ async def review_duplicate(review: DuplicateReview):
         session = sessions[review.session_id]
         session.reviewed_duplicates[review.duplicate_id] = review.is_duplicate
 
-        return {
+        content = {
             "session_id": review.session_id,
             "duplicate_id": review.duplicate_id,
             "is_duplicate": review.is_duplicate,
             "total_reviewed": len(session.reviewed_duplicates),
             "total_groups": len(session.duplicate_groups),
         }
+        return sanitize_pre_api_resp(content)
 
     except Exception as e:
         raise HTTPException(
@@ -382,7 +387,7 @@ async def get_session_status(session_id: str):
 
         session = sessions[session_id]
 
-        return {
+        content = {
             "session_id": session_id,
             "filename": session.filename,
             "total_rows": len(session.original_df),
@@ -392,6 +397,7 @@ async def get_session_status(session_id: str):
             "pending_review": len(session.duplicate_groups)
             - len(session.reviewed_duplicates),
         }
+        return sanitize_pre_api_resp(content)
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching session: {str(e)}")
