@@ -1,0 +1,21 @@
+id,product_name,description,category,price
+1,Laptop Computer,Portable computing device for work and entertainment,Electronics,899.99
+2,Notebook PC,Mobile computer for professional and personal use,Electronics,899.00
+3,Coffee Maker,Automatic brewing machine for hot beverages,Kitchen,49.99
+4,Espresso Machine,Automated coffee brewing appliance,Kitchen,49.50
+5,Running Shoes,Athletic footwear for jogging and sports,Apparel,79.99
+6,Jogging Sneakers,Sport shoes designed for running,Apparel,79.95
+7,Office Chair,Ergonomic seating for workspace,Furniture,199.99
+8,Desk Chair,Comfortable chair for office use,Furniture,199.00
+9,Wireless Mouse,Cordless pointing device for computers,Electronics,29.99
+10,Bluetooth Mouse,Wireless computer mouse with Bluetooth connectivity,Electronics,29.95
+11,Water Bottle,Reusable container for beverages,Kitchen,14.99
+12,Hydration Bottle,Portable water container,Kitchen,14.50
+13,Backpack,Carrying bag with shoulder straps,Accessories,59.99
+14,Rucksack,Travel bag with back support,Accessories,59.95
+15,LED Monitor,Display screen with LED technology,Electronics,249.99
+16,LCD Display,Computer screen with liquid crystal technology,Electronics,239.99
+17,Desk Lamp,Lighting fixture for workspace,Furniture,34.99
+18,Table Light,Illumination device for desk,Furniture,34.50
+19,Yoga Mat,Exercise pad for floor workouts,Sports,24.99
+20,Fitness Mat,Workout surface for exercise,Sports,24.95

@@ -1,0 +1,16 @@
+**/.git
+**/.gitignore
+**/.vscode
+**/.idea
+**/__pycache__
+**/.pytest_cache
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/node_modules
+**/npm-debug.log
+**/dist
+**/.env
+**/.env.local
+**/temp_data
+**/*.md
