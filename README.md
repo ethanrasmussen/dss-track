@@ -4,7 +4,7 @@ DSS-Track allows users to compare rows within Excel/CSV spreadsheets to identify
 # Demo Video:
 https://github.com/user-attachments/assets/47de53f0-022b-45a9-a052-e5ae223813fc
 
-
+_Note: Video quality downscaled due to Github limitations_
 
 # Get Started:
 1. Ensure Docker installed locally
